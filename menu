@@ -1,0 +1,42 @@
+# menu
+#..........................................................................
+while true
+do
+  #..........................................................................
+  # affichage
+  #..........................................................................
+  clear
+  echo " MENU OF CHOICES
+
+1--  lancer la commande inclut
+2 -- lancer la commande liste
+3 -- lancer la commande desc
+4 -- lancer la commande save
+5--  afficher le help
+0 -- QUIT (Leave this menu program)
+
+ *Entrez une lettre (parmi les choix possibles)*
+                          puis tapez RETURN \c"
+
+  #..........................................................................
+  # saisie d une touche et gestion
+  #..........................................................................
+  read answer
+  clear
+
+  case "$answer" in
+    [1]*) sudo  dpkg -qf /etc/resolv.conf ;;
+
+    [2]*) $DIR_SCRIPTS/backup_jlb;;
+    [3]*) >$DIR_SCRIPTS/restore_jlb;;
+    [4]*) ;;
+    [5]*) $DIR_SCRIPTS/restore_do;;
+
+
+    [0]*)  echo "exit  du program" ; exit 0 ;;
+    *)      echo "Choisissez une option affichee dans le menu:" ;;
+  esac
+  echo ""
+  echo "tapez RETURN pour le menu"
+  read dummy
+done
